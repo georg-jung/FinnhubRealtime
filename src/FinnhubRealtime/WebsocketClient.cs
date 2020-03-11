@@ -31,6 +31,8 @@ namespace FinnhubRealtime
             this.endpoint = endpoint ?? throw new ArgumentNullException(nameof(endpoint));
         }
 
+        public bool IsConnected => socket.State == WebSocketState.Open;
+
         public Task Connect(CancellationToken cancellationToken = default) => socket.ConnectAsync(endpoint, cancellationToken);
 
         public async Task Subscribe(string symbol, CancellationToken cancellationToken = default)
