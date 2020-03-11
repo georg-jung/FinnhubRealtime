@@ -3,9 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <Deterministic>true</Deterministic>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
 
   <PropertyGroup>
+    <PackageId>FinnhubRealtime</PackageId>
+    <Authors>Georg Jung</Authors>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageDescription>A .Net Standard 2.1 client library for receiving Finnhub.io real-time price updates.</PackageDescription>
