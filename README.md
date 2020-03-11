@@ -1,3 +1,13 @@
+<p style="text-align: center;">
+  <a href="https://www.nuget.org/packages/FinnhubRealtime/">
+    <img
+      alt="FinnhubRealtime logo"
+      src="doc/logo.svg"
+      width="100"
+    />
+  </a>
+</p>
+
 # FinnhubRealtime
 [![NuGet version (FinnhubRealtime)](https://img.shields.io/nuget/v/FinnhubRealtime.svg?style=flat)](https://www.nuget.org/packages/FinnhubRealtime/)
 [![Build Status](https://dev.azure.com/georg-jung/FinnhubRealtime/_apis/build/status/georg-jung.FinnhubRealtime?branchName=master)](https://dev.azure.com/georg-jung/FinnhubRealtime/_build/latest?definitionId=8&branchName=master)
