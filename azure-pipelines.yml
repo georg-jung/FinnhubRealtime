@@ -5,7 +5,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  SrcDir: '$(System.DefaultWorkingDirectory)'
+  SrcDir: '$(System.DefaultWorkingDirectory)/src'
   solution: '$(SrcDir)/FinnhubRealtime.sln'
   BuildConfiguration: 'Release'
   DOTNET_CLI_TELEMETRY_OPTOUT: true
