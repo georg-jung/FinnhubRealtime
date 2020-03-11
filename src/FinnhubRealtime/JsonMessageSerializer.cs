@@ -1,4 +1,4 @@
-﻿using FinnhubRealtime.Model;
+using FinnhubRealtime.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +28,6 @@ namespace FinnhubRealtime
             return JsonSerializer.Deserialize<TradeMessage>(str, opts);
         }
 
-        public byte[] Serialize(Message msg) => JsonSerializer.SerializeToUtf8Bytes(msg, opts);
+        public byte[] Serialize<TMsg>(TMsg msg) where TMsg : Message => JsonSerializer.SerializeToUtf8Bytes(msg, opts);
     }
 }
