@@ -15,9 +15,11 @@
     <PackageId>FinnhubRealtime</PackageId>
     <Authors>Georg Jung</Authors>
     <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageDescription>A .Net Standard 2.1 client library for receiving Finnhub.io real-time price updates.</PackageDescription>
     <PackageTags>degiro;fluent;api;cloud;rest;client;http;json</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -27,6 +29,10 @@
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="System.Text.Json" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../doc/logo-nuget.png" Pack="true" PackagePath="/icon.png" />
   </ItemGroup>
 
 </Project>
