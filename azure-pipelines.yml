@@ -31,6 +31,16 @@ stages:
       displayName: Cache NuGet packages
       condition: and(succeeded(), eq(variables.UseNugetCache, true))
 
+    - task: DotNetCoreCLI@2  
+      inputs:
+        command: custom
+        custom: tool
+        arguments: install --tool-path . nbgv
+      displayName: Install NBGV tool
+
+    - script: nbgv cloud
+      displayName: Set Version
+
     - task: DotNetCoreCLI@2
       inputs:
         command: 'restore'
