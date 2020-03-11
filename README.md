@@ -1,4 +1,4 @@
-<p style="text-align: center;">
+<p align="center">
   <a href="https://www.nuget.org/packages/FinnhubRealtime/">
     <img
       alt="FinnhubRealtime logo"
@@ -19,7 +19,7 @@ FinnhubRealtime is a .Net Standard 2.1 client library for receiving [Finnhub.io]
 ## Usage
 
 ```csharp
-cl = new WebsocketClient("YOUR API TOKEN");
+using var cl = new WebsocketClient("YOUR API TOKEN");
 await cl.Connect();
 await cl.Subscribe("AAPL");
 while (true)
