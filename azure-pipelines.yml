@@ -11,6 +11,7 @@ variables:
   DOTNET_CLI_TELEMETRY_OPTOUT: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   VersionSuffix: $(Build.BuildNumber)
+  NugetConfigPath: '$(SrcDir)/NuGet.config'
   RunTests: false
   UseNugetCache: false
   NUGET_PACKAGES: $(Pipeline.Workspace)/.nuget/packages
@@ -35,6 +36,8 @@ stages:
       inputs:
         command: 'restore'
         projects: '$(solution)'
+        feedsToUse: 'config'
+        nugetConfigPath: '$(NugetConfigPath)'
         verbosityRestore: 'Minimal'
         arguments: '--locked-mode'
       displayName: 'Restore'
