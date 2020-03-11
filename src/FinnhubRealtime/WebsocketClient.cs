@@ -1,6 +1,7 @@
-﻿using FinnhubRealtime.Model;
+using FinnhubRealtime.Model;
 using System;
 using System.Globalization;
+using System.IO;
 using System.Net.WebSockets;
 using System.Text.Json;
 using System.Threading;
@@ -47,15 +48,17 @@ namespace FinnhubRealtime
         {
             if (socket.State != WebSocketState.Open)
                 throw new InvalidOperationException($"Receiving is just possible when the socket is open. The socket's state is {socket.State}.");
+            using var ms = new MemoryStream();
             var buffer = WebSocket.CreateClientBuffer(8192, 8192);
             WebSocketReceiveResult res;
             do
             {
                 res = await socket.ReceiveAsync(buffer, cancellationToken).ConfigureAwait(false);
+                ms.Write(buffer.Array, buffer.Offset, res.Count);
             } while (!res.EndOfMessage);
             if (res.MessageType == WebSocketMessageType.Close)
                 throw new ConnectionClosedByServerException("The connection was closed by the server.");
-            var msg = messageSerializer.Deserialize(buffer);
+            var msg = messageSerializer.Deserialize(ms.ToArray());
             return msg;
         }
 
