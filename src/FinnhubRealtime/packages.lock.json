@@ -24,6 +24,12 @@
           "Microsoft.SourceLink.Common": "1.0.0"
         }
       },
+      "Nerdbank.GitVersioning": {
+        "type": "Direct",
+        "requested": "[3.1.68, )",
+        "resolved": "3.1.68",
+        "contentHash": "34pkY22UQQ/69bBFSl+PoQPuY2+ILbIFOWsqTdIU/AuvSH19aCvdHsT6WX0hcRZL2VNZeCiHkuhcY8bSjn4ifQ=="
+      },
       "System.Text.Json": {
         "type": "Direct",
         "requested": "[4.7.1, )",
