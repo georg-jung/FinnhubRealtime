@@ -18,8 +18,8 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: Library
-    displayName: 'Library'
+  - job: Library_DemoApp
+    displayName: 'Library & Demo App'
     steps:
     - task: Cache@2
       inputs:
@@ -57,6 +57,7 @@ stages:
       displayName: 'Test'
       condition: and(succeeded(), eq(variables.RunTests, true))
 
+    # Library
     - task: DotNetCoreCLI@2
       inputs:
         command: pack
@@ -70,6 +71,20 @@ stages:
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)/Packages'
         artifact: 'Packages'
+
+    # Demo Application
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'publish'
+        publishWebProjects: false
+        projects: '$(SrcDir)/FinnhubRealtime.Demo/FinnhubRealtime.Demo.csproj'
+        arguments: '-c $(BuildConfiguration) --no-restore --no-build --output $(Build.ArtifactStagingDirectory)/DemoApp'
+      displayName: 'Publish DemoApp'
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)/WebApi'
+        artifact: 'DemoApp'
 
 ##################
 ##### DEPLOY #####
