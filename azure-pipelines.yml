@@ -27,7 +27,7 @@ stages:
       displayName: Cache NuGet packages
       condition: and(succeeded(), eq(variables.UseNugetCache, true))
 
-    - task: DotNetCoreCLI@2  
+    - task: DotNetCoreCLI@2
       inputs:
         command: custom
         custom: tool
@@ -52,7 +52,7 @@ stages:
       inputs:
         command: build
         projects: '$(solution)'
-        arguments: '-c $(BuildConfiguration) --no-restore'
+        arguments: '-c $(BuildConfiguration) --no-restore /p:ContinuousIntegrationBuild=true'
       displayName: 'Build'
 
     - task: DotNetCoreCLI@2
